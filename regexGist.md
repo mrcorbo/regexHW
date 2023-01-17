@@ -1,4 +1,4 @@
-# Regex Matching an E-mail Address
+# Regex Tutorial on Matching an E-mail Address
 
 ## Summary
 A regular expression, or regex, for matching email addresses is a pattern used to search for and match specific sequences of characters in a string.
