@@ -36,6 +36,8 @@ Special characters
 Anchors
 Grouping Constructs
 The OR operator
+Flags
+Character Escapes
 
 An example of a regex that uses many of these components to match email address: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(com|edu|gov)$/i
 
@@ -76,8 +78,34 @@ These are used to specify a set of characters that can be matched. In a regex fo
 This is used to match one of several different patterns. For example, | (pipe) is used to match one of several different top-level domains (TLDs) such as .com, .edu, .gov.
 
 ### Flags
+The most common flag used in an email matching regex is:
+
+i (ignore case): This flag makes the regex case-insensitive. It allows the regex to match both uppercase and lowercase letters without having to specify both in the character class. So, for example, the character class [A-Z] would match both uppercase "A" and lowercase "a" when the i flag is used.
 
 ### Character Escapes
+In regular expressions, certain characters have special meaning and need to be escaped in order to match them literally. The most common characters that are escaped in an email matching regex are:
+
+. (dot): The dot is a special character that matches any character except a newline. In an email matching regex, the dot is used to match the dot that separates the domain name from the top-level domain (TLD) of the email address. If you want to match a literal dot, you must escape it with a backslash \.
+
++ (plus): The plus is a special character that matches one or more of the preceding character. It's used in the local part of the email address, to match one or more of the characters specified in the character class.
+
+* (asterisk): The asterisk is a special character that matches zero or more of the preceding character. It's not used in the usual email matching regex.
+
+? (question mark): The question mark is a special character that matches zero or one of the preceding character. It's not used in the usual email matching regex.
+
+$ (dollar sign): The dollar sign is a special character that matches the end of the line. It's used as an anchor in the email matching regex to match the end of the line.
+
+^ (caret): The caret is a special character that matches the start of the line. It's used as an anchor in the email matching regex to match the start of the line.
+
+{} (curly brackets): The curly brackets are special characters that specify a range of possible repetitions of the preceding character or group. It's used in the TLD part of the email address to match the TLD with a specific length.
+
+[] (square brackets): The square brackets are special characters that specify a set of characters that can be matched. It's used in the local and domain parts of the email address to match specific set of characters.
+
+() (parentheses): The parentheses are special characters that group characters together and apply a quantifier to the entire group. It's not used in the usual email matching regex.
+
+\ (backslash): The backslash is used to escape special characters so that they are treated as literal characters. For example, \. matches a literal dot, instead of any character.
+
+An example of a regex that uses many of these characters: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
 ## Author
 Michael Corbo is the author of this particular tutorial.
